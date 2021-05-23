@@ -1,56 +1,60 @@
 #!/usr/bin/python3
-""""Module of updated Square with getter and setter"""
+"""Create class"""
 
 
-class Square():
-    """Square class with private instance attribute size"""
+class Square:
+    """Square class"""
     def __init__(self, size=0, position=(0, 0)):
+        """Initialize Square"""
         self.__size = size
-        self.__position = position
+        self.position = position
+        """if type(size) is not int:
+            raise TypeError("size must be an integer")
+        if size < 0:
+            raise ValueError("size must be >= 0")"""
 
-    """Public Method for area of square"""
-    def area(self):
-        ar = self.__size ** 2
-        return ar
-
-    """Public Method prints a square"""
-    def my_print(self):
-        if (self.__size == 0):
-            print()
-        else:
-            for i in range(self.__position[1]):
-                print()
-            for j in range(self.__size):
-                print('{}{}'.format(' ' * self.position[0], '#' * self.__size))
+    def area(self, area=0):
+        """defines area"""
+        return(self.__size * self.__size)
 
     @property
     def size(self):
-        """method to get value of size"""
+
+        """ define size"""
         return self.__size
 
     @size.setter
     def size(self, value):
-        """method to set value of size"""
+        """Define area"""
         if type(value) is not int:
             raise TypeError("size must be an integer")
         if value < 0:
             raise ValueError("size must be >= 0")
+        self.__size = value
+
+    def my_print(self):
+        """print Square"""
+        if self.__size:
+            for i in range(self.__position[1]):
+                print()
+            for j in range(self.__size):
+                print('{}{}'.format(' ' * self.position[0], '#' * self.__size))
         else:
-            self.__size = value
+            print()
 
     @property
     def position(self):
-        """method to get value of position"""
+
+        """ position"""
         return self.__position
 
     @position.setter
     def position(self, value):
-        """method to set value of position"""
-        if not isinstance(value, tuple) and value < 0 or len(value) != 2:
+        if (not isinstance(value, tuple) or
+                len(value) != 2 or
+                not isinstance(value[0], int) or
+                not isinstance(value[1], int) or
+                value[0] < 0 or
+                value[1] < 0):
             raise TypeError("position must be a tuple of 2 positive integers")
-        elif not isinstance(value[0], int):
-            raise TypeError("position must be a tuple of 2 positive integers")
-        elif not isinstance(value[1], int):
-            raise TypeError("position must be a tuple of 2 positive integers")
-        else:
-            self.__position = value
+        self.__position = value
