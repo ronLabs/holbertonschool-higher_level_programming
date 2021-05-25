@@ -1,9 +1,10 @@
 #!/usr/bin/python3
-"""Module for one function to get sum of two variables
-   can be either integers or floats, but floats must
-   be casted into integers.
-   Returns sums of the two integers.
-   """
+"""
+    Module for one function to get sum of two variables
+    can be either integers or floats, but floats must
+    be casted into integers.
+    Returns sums of the two integers.
+"""
 
 
 def add_integer(a, b=98):
