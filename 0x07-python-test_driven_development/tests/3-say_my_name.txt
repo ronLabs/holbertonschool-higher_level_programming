@@ -1,0 +1,78 @@
+===================================
+The ``say_my_name doctest`` module
+===================================
+
+Using ``say_my_name``
+___________________________________
+
+Tests to run for task 3, say_my_name. 
+
+import function from module name:
+
+    >>> say_my_name = __import__('3-say_my_name').say_my_name
+
+    Passing two regular strings:
+    >>> say_my_name("John", "Smith")
+    My name is John Smith
+
+    Passing one argument 'fist_name':
+    >>> say_my_name("Bob")
+    My name is Bob 
+
+    Passing a non-string with a string:
+    >>> say_my_name(12, "White")
+    Traceback (most recent call last):
+        ...
+    TypeError: first_name must be a string
+
+    Passing a non-string in 'last_name':
+    >>> say_my_name("Walter", 12)
+    Traceback (most recent call last):
+        ...
+    TypeError: last_name must be a string
+
+    Passing two non-strings:
+    >>> say_my_name(12, 12)
+    Traceback (most recent call last):
+        ...
+    TypeError: first_name must be a string
+
+    Passing an empty parameter:
+    >>> say_my_name()
+    Traceback (most recent call last):
+        ...
+    TypeError: say_my_name() missing 1 required positional argument: 'first_name'
+
+    Passing a non-literal:
+    >>> say_my_name(Walter)
+    Traceback (most recent call last):
+        ...
+    NameError: name 'Walter' is not defined
+
+    Passing an empty 'first_name":
+    >>> say_my_name(, "White")
+    Traceback (most recent call last):
+        ...
+    SyntaxError: invalid syntax
+
+    Passing a typo of quote:
+    >>> say_my_name("Walter)
+    Traceback (most recent call last):
+        ...
+    SyntaxError: EOL while scanning string literal
+
+    Passing first arg with comma and space:
+    >>> say_my_name("Walter", )
+    My name is Walter 
+
+    Passing with no quotes:
+    >>> say_my_name(Walter White)
+    Traceback (most recent call last):
+        ...
+    SyntaxError: invalid syntax
+
+    Passing more than two arguments:
+    >>> say_my_name("Walter","White", "Smith")
+    Traceback (most recent call last):
+        ...
+    TypeError: say_my_name() takes from 1 to 2 positional arguments but 3 were given
