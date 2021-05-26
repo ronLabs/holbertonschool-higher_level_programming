@@ -2,8 +2,9 @@
 """Module of real definition of a rectangle"""
 
 
-class Rectangle:
+class Rectangle():
     """class Rectangle defined with priv inst attrib width and height"""
+
     def __init__(self, width=0, height=0):
         self.__width = width
         self.__height = height
