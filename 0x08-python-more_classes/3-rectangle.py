@@ -54,10 +54,10 @@ class Rectangle():
     def __str__(self):
         """built in to return printed representation of string instance"""
         fig = ""
-        for i in range(self.height):
-            for j in range(self.width):
-                if self.height == 0 or self.width == 0:
+        if self.__height == 0 or self.__width == 0:
                     return fig
+        for i in range(self.__height):
+            for j in range(self.__width):
                 fig += "#"
             fig += '\n'
         return fig[:-1]
