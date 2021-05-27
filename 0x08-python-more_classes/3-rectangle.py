@@ -50,7 +50,7 @@ class Rectangle():
         if self.__width == 0 or self.__height == 0:
             per = 0
         return per
-    
+
     def __str__(self):
         """built in to return printed representation of string instance"""
         fig = ""
