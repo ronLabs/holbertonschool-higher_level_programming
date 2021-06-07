@@ -10,5 +10,5 @@ def number_of_lines(filename=""):
 
         for eachLine in a_file:
             lineNum += 1
-        file.close()
-        return lineNum
+    file.close()
+    return lineNum
