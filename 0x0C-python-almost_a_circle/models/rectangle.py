@@ -91,7 +91,7 @@ class Rectangle(Base):
         a, b, c, d, e = self.id, self.x, self.y, self.width, self.height
         return ("[Rectangle] ({}) {}/{} - {}/{}".format(a, b, c, d, e))
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """Pub method to assign an arg to each attribute"""
         dict = {
             0: self.id,
@@ -100,8 +100,10 @@ class Rectangle(Base):
             3: self.__x,
             4: self.__y
         }
-        if args:
-            for counter, value in enumerate(args):
-                dict[counter] = value
-                self.id, self.__width, self.__height, self.__x, self.__y \
-                    = dict[0], dict[1], dict[2], dict[3], dict[4]
+        for counter, value in enumerate(args):
+            dict[counter] = value
+            self.id, self.__width, self.__height, self.__x, self.__y \
+                = dict[0], dict[1], dict[2], dict[3], dict[4]
+        for key, value in kwargs.items():
+            if (hasattr(self, key)):
+                setattr(self, key, value)
