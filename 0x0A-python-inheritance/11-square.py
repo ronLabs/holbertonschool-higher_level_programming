@@ -12,5 +12,5 @@ class Square(Rectangle):
 
     def __str__(self):
         """Builtin for string repr of instance"""
-        result = "[Rectangle] {:d}/{:d}".format(self.__size, self.__size)
+        result = "[Square] {:d}/{:d}".format(self.__size, self.__size)
         return result
