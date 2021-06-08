@@ -90,3 +90,18 @@ class Rectangle(Base):
         """overriding str"""
         a, b, c, d, e = self.id, self.x, self.y, self.width, self.height
         return ("[Rectangle] ({}) {}/{} - {}/{}".format(a, b, c, d, e))
+
+    def update(self, *args):
+        """Pub method to assign an arg to each attribute"""
+        dict = {
+            0: self.id,
+            1: self.__width,
+            2: self.__height,
+            3: self.__x,
+            4: self.__y
+        }
+        if args:
+            for counter, value in enumerate(args):
+                dict[counter] = value
+                self.id, self.__width, self.__height, self.__x, self.__y \
+                    = dict[0], dict[1], dict[2], dict[3], dict[4]
