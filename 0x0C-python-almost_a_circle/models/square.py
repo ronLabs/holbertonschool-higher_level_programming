@@ -24,3 +24,21 @@ class Square(Rectangle):
         result = "[Square] ({:d}) {:d}/{:d} - {:d}".format(
                  self.id, self.x, self.y, self.size)
         return result
+
+    def update(self, *args, **kwargs):
+        """Pub method to assign and update attributes"""
+        sdict = {
+            0: self.id,
+            1: self.size,
+            2: self.x,
+            3: self.y,
+        }
+
+        for counter, value in enumerate(args):
+            sdict[counter] = value
+            self.id, self.size, self.x, self.y = \
+                sdict[0], sdict[1], sdict[2], sdict[3]
+                
+        for key, value in kwargs.items():
+            if (hasattr(self, key)):
+                setattr(self, key, value)
