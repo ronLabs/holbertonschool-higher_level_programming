@@ -100,10 +100,23 @@ class Rectangle(Base):
             3: self.__x,
             4: self.__y
         }
-        for counter, value in enumerate(args):
-            dict[counter] = value
-            self.id, self.__width, self.__height, self.__x, self.__y \
-                = dict[0], dict[1], dict[2], dict[3], dict[4]
+        if args:
+            for counter, value in enumerate(args):
+                dict[counter] = value
+                self.id, self.__width, self.__height, self.__x, self.__y \
+                    = dict[0], dict[1], dict[2], dict[3], dict[4]
+
         for key, value in kwargs.items():
             if (hasattr(self, key)):
                 setattr(self, key, value)
+
+    def to_dictionary(self):
+        """Pub method to return dict repr of instances"""
+        recDict = {
+            'id': self.id,
+            'width': self.width,
+            'height': self.height,
+            'x': self.x,
+            'y': self.y
+        }
+        return recDict
