@@ -2,6 +2,7 @@
 """Base class 1.0"""
 import json
 
+
 class Base:
     """class Base of all classes in project 0x0c"""
     __nb_objects = 0
