@@ -38,7 +38,7 @@ class Square(Rectangle):
             sdict[counter] = value
             self.id, self.size, self.x, self.y = \
                 sdict[0], sdict[1], sdict[2], sdict[3]
-                
+
         for key, value in kwargs.items():
             if (hasattr(self, key)):
                 setattr(self, key, value)
