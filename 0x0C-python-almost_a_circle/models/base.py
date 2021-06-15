@@ -42,3 +42,16 @@ class Base:
                 list_dic.append(cls.to_dictionary(element))
         with open(new_file, mode="w", encoding='utf-8') as my_file:
             my_file.write(cls.to_json_string(list_dic))
+
+    @classmethod
+    def create(cls, **dictionary):
+        """
+            the class Base by adding the class method,
+            returns an instance with all attributes already set
+        """
+        if cls.__name__ == "Rectangle":
+            obj_j = cls(4, 5)
+        else:
+            obj_j = cls(6)
+        obj_j.update(**dictionary)
+        return(obj_j)
