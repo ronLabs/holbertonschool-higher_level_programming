@@ -73,3 +73,23 @@ class Base:
                 return list_ins
         except:
             return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """
+            pdate the class Base by adding the static method,
+            that opens a window and draws all the Rectangles and Squares
+        """
+        csvfile = '{}.csv'.format(cls.__name__)
+        with open(csvfile, mode="w", newline='') as csvf:
+            if list_objs is None or list_objs == []:
+                csvf.write('[]')
+            else:
+                if cls.__name__ == 'Square':
+                    attr = ["id", "size", "x", "y"]
+                else:
+                    attr = ["id", "width", "height", "x", "y"]
+                doc = csv.DictWriter(csvf, fieldnames=attr)
+                list_csv = []
+                for inst in list_objs:
+                    list_csv += [doc.writerow(inst.to_dictionary())]
