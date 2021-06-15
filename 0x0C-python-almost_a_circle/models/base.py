@@ -55,3 +55,21 @@ class Base:
             obj_j = cls(6)
         obj_j.update(**dictionary)
         return(obj_j)
+
+    @classmethod
+    def load_from_file(cls):
+        """
+            Update the class Base by adding the class method,
+            returns a list of instances
+        """
+        filename = cls.__name__ + '.json'
+
+        try:
+            list_ins = []
+            with open(filename, encoding="utf-8") as file:
+                dic = Base.from_json_string(file.read())
+                for item in dic:
+                    list_ins += [cls.create(**item)]
+                return list_ins
+        except:
+            return []
