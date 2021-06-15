@@ -21,3 +21,24 @@ class Base:
             return json.dumps(list_dictionaries)
         else:
             return "[]"
+
+    @staticmethod
+    def from_json_string(json_string):
+        """return list repr of json str"""
+        if json_string is None:
+            return "[]"
+        else:
+            return json.loads(json_string)
+
+    @classmethod
+    def save_to_file(cls, list_objs):
+        """cls method to save json str to file """
+
+        new_file = "{}.json".format(cls.__name__)
+        list_dic = []
+
+        if list_objs is not None:
+            for element in list_objs:
+                list_dic.append(cls.to_dictionary(element))
+        with open(new_file, mode="w", encoding='utf-8') as my_file:
+            my_file.write(cls.to_json_string(list_dic))
