@@ -10,7 +10,7 @@ if (process.argv.length < 4) {
     fbig = parseInt(process.argv[3]);
     sbig = parseInt(process.argv[2]);
   }
-  
+
   for (let i = 4; i < process.argv.length; i++) {
     if (parseInt(process.argv[i]) > fbig) {
       sbig = fbig;
