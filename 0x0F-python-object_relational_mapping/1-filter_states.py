@@ -13,19 +13,18 @@ if __name__ == '__main__':
     my_pass = argv[2]
     my_db = argv[3]
 
-    db = MySQLdb.connect(
+    conn = MySQLdb.connect(
         "localhost",
         my_user,
         my_pass,
         my_db
     )
 
-    cur = db.cursor()
-    database = cur.execute("SELECT id, name FROM states ORDER BY states.id;")
-    for i in range(0, database):
-        results = cur.fetchone()
-        if results[1][0] == 'N':
-            print(results)
-
+    cur = conn.cursor()
+    cur.execute("SELECT * FROM states ORDER BY states.id;")
+    query_rows = cur.fetchall()
+    for row in query_rows:
+        if row[1].startswith('N'):
+            print(row)
     cur.close()
-    db.close()
+    conn.close()
