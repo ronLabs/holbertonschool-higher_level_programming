@@ -23,9 +23,9 @@ if __name__ == '__main__':
     database = cur.execute("SELECT cities.id, cities.name, states.name \
                          FROM cities JOIN states ON cities.state_id = \
                          states.id ORDER BY cities.id;")
-    for i in range(0, database):
-        results = cur.fetchone()
-        print("{}".format(results))
+    rows = cur.fetchall()
+    for row in rows:
+        print(row)
 
     cur.close()
     db.close()
