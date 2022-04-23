@@ -9,11 +9,13 @@ from sys import argv
 
 
 if __name__ == '__main__':
-    req_pag = argv[1]
-    send_email = {"email": argv[2]}
-    post_pag = parse.urlencode(send_email).encode("utf-8")
-    req_req = request.Request(req_pag, post_pag)
+    url, email = argv[1:]
+    data = {'email': email}
 
-    with request.urlopen(req_req) as response:
-        data = response.read().decode("utf-8")
-    print(data)
+    data = parse.urlencode(data)
+    data = data.encode('ascii')
+    req = request.Request(url, data)
+
+    with request.urlopen(req) as res:
+        _bytes = res.read()
+        print(_bytes.decode('utf-8'))
